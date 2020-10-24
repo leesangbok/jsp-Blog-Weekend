@@ -3,6 +3,10 @@
 ### 데이터베이스 테이블 스키마
 
 ```sql
+create user 'cos'@'%' identified by 'bitc5600';
+GRANT ALL PRIVILEGES ON *.* TO 'cos'@'%';
+create database cos;
+
 create table user(
 	id int primary key auto_increment,
     username varchar(45)not null unique,
