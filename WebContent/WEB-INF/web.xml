@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="3.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+	<!-- <servlet> <servlet-name>frontController</servlet-name> <servlet-class>com.cos2.controller.FrontController</servlet-class>HttpServlet타입만 
+		New 해준다. </servlet> -->
+
+	<!-- HttpServlet frontController = new com.cos.controller.FrontServlet(); 
+		<servlet-mapping> <servlet-name>frontController</servlet-name> new해준 변수 <url-pattern>*.do</url-pattern> 
+		</servlet-mapping> -->
+
+	<!-- DBCP 설정부분 -->
+	<description>MySQL Test App</description>
+	<resource-ref>
+		<description>DB Connection</description>
+		<res-ref-name>jdbc/TestDB</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+
+	<!-- 한글인코딩 -->
+	<filter>
+		<filter-name>CharEncFilter</filter-name>
+		<filter-class>com.cos.blog.config.CharEncFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>CharEncFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>
